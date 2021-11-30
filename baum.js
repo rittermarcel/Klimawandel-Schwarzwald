@@ -2,22 +2,24 @@
 var KlimawandelSchwarzwald;
 (function (KlimawandelSchwarzwald) {
     class Baum {
-        constructor(_color) {
+        constructor(_color, _positionX, _positionY) {
             this.color = _color;
+            this.positionX = _positionX;
+            this.positionY = _positionY;
         }
         drawTree() {
             console.log("Gesunder Baum");
             KlimawandelSchwarzwald.crc2.beginPath();
             KlimawandelSchwarzwald.crc2.fillStyle = "brown";
-            KlimawandelSchwarzwald.crc2.rect(70, 165, 20, 80);
+            KlimawandelSchwarzwald.crc2.rect(this.positionX, this.positionY, 20, 80);
             KlimawandelSchwarzwald.crc2.fill();
             KlimawandelSchwarzwald.crc2.closePath();
             KlimawandelSchwarzwald.crc2.beginPath();
-            KlimawandelSchwarzwald.crc2.moveTo(80, 165);
-            KlimawandelSchwarzwald.crc2.lineTo(130, 165);
-            KlimawandelSchwarzwald.crc2.lineTo(80, 80);
-            KlimawandelSchwarzwald.crc2.lineTo(30, 165);
-            KlimawandelSchwarzwald.crc2.lineTo(80, 165);
+            KlimawandelSchwarzwald.crc2.moveTo(this.positionX + 10, this.positionY);
+            KlimawandelSchwarzwald.crc2.lineTo(this.positionX + 60, this.positionY);
+            KlimawandelSchwarzwald.crc2.lineTo(this.positionX + 10, this.positionY - 85);
+            KlimawandelSchwarzwald.crc2.lineTo(this.positionX - 40, this.positionY);
+            KlimawandelSchwarzwald.crc2.lineTo(this.positionX + 10, this.positionY);
             KlimawandelSchwarzwald.crc2.fillStyle = this.color;
             KlimawandelSchwarzwald.crc2.fill();
         }
@@ -25,18 +27,18 @@ var KlimawandelSchwarzwald;
             console.log("Toter Baum");
             KlimawandelSchwarzwald.crc2.beginPath();
             KlimawandelSchwarzwald.crc2.fillStyle = "brown";
-            KlimawandelSchwarzwald.crc2.rect(300, 100, 20, 140);
+            KlimawandelSchwarzwald.crc2.rect(this.positionX, this.positionY, 20, 140);
             KlimawandelSchwarzwald.crc2.fill();
             KlimawandelSchwarzwald.crc2.closePath();
             KlimawandelSchwarzwald.crc2.beginPath();
-            KlimawandelSchwarzwald.crc2.moveTo(300, 160);
-            KlimawandelSchwarzwald.crc2.lineTo(270, 130);
-            KlimawandelSchwarzwald.crc2.moveTo(290, 150);
-            KlimawandelSchwarzwald.crc2.lineTo(270, 170);
-            KlimawandelSchwarzwald.crc2.moveTo(320, 130);
-            KlimawandelSchwarzwald.crc2.lineTo(350, 110);
-            KlimawandelSchwarzwald.crc2.moveTo(340, 90);
-            KlimawandelSchwarzwald.crc2.lineTo(330, 123);
+            KlimawandelSchwarzwald.crc2.moveTo(this.positionX, this.positionY + 60);
+            KlimawandelSchwarzwald.crc2.lineTo(this.positionX - 30, this.positionY + 30);
+            KlimawandelSchwarzwald.crc2.moveTo(this.positionX - 10, this.positionY + 50);
+            KlimawandelSchwarzwald.crc2.lineTo(this.positionX - 30, this.positionY + 70);
+            KlimawandelSchwarzwald.crc2.moveTo(this.positionX + 20, this.positionY + 30);
+            KlimawandelSchwarzwald.crc2.lineTo(this.positionX + 50, this.positionY + 10);
+            KlimawandelSchwarzwald.crc2.moveTo(this.positionX + 40, this.positionY - 10);
+            KlimawandelSchwarzwald.crc2.lineTo(this.positionX + 30, this.positionY + 23);
             KlimawandelSchwarzwald.crc2.strokeStyle = "brown";
             KlimawandelSchwarzwald.crc2.stroke();
         }

@@ -7,7 +7,9 @@
     <title>Quiz</title>
     <script src="baum.js"></script>
     <script src="quiz_script.js"></script>
+    <script src="inhalt.js" defer></script>
     <link rel="stylesheet" href="quiz_style.css">
+    <link rel="icon" type="image/png" href="bilder/favicon.png"/>
 </head>
 <body>
     <div class="header">
@@ -27,8 +29,8 @@
     </div>
     
        <form>
-            
-           <div class="questionBox">
+            <div id="appendQuestions"></div>
+           <!-- <div class="questionBox">
                <div class="question">
            <p class="questionField">Fichten sind eher vom Klimawandel
             betroffen als andere Baumarten</p>
@@ -37,6 +39,8 @@
            <input type="radio" name="answer1" id="answer1A" value="true" class="radioButton">
            
            <input type="radio" name="answer1" id="answer1B" value="false" class="radioButton">
+           <img src="bilder/cross.png" width="20" height="20" class="radioButton" >
+           <img src="bilder/check.png" width="50" height="50" class="radioButton" >
         </div>
         </div>
         
@@ -46,9 +50,12 @@
             an Wanderwegen</p>
      </div>
      <div class="answer">
-        <input type="radio" name="answer1" id="answer1A" value="true" class="radioButton">
+        <input type="radio" name="answer2" id="answer2A" value="true" class="radioButton">
         
-        <input type="radio" name="answer1" id="answer1B" value="false" class="radioButton">
+        <input type="radio" name="answer2" id="answer2B" value="false" class="radioButton">
+        <img src="bilder/cross.png" width="20" height="20" class="radioButton" >
+        <img src="bilder/check.png" width="50" height="50" class="radioButton" >
+
      </div>
      </div>
      <div class="questionBox">
@@ -57,9 +64,12 @@
         wieder Wölfe im Schwarzwald an</p>
  </div>
  <div class="answer">
-    <input type="radio" name="answer1" id="answer1A" value="true" class="radioButton">
+    <input type="radio" name="answer3" id="answer3A" value="true" class="radioButton">
     
-    <input type="radio" name="answer1" id="answer1B" value="false" class="radioButton">
+    <input type="radio" name="answer3" id="answer3B" value="false" class="radioButton">
+    <img src="bilder/cross.png" width="20" height="20" class="radioButton" >
+    <img src="bilder/check.png" width="50" height="50" class="radioButton" >
+
  </div>
  </div>
  <div class="questionBox">
@@ -68,9 +78,12 @@
     machen Tannen und Kiefern aus</p>
 </div>
 <div class="answer">
-<input type="radio" name="answer1" id="answer1A" value="true" class="radioButton">
+<input type="radio" name="answer4" id="answer4A" value="true" class="radioButton">
 
-<input type="radio" name="answer1" id="answer1B" value="false" class="radioButton">
+<input type="radio" name="answer4" id="answer4B" value="false" class="radioButton">
+<img src="bilder/cross.png" width="20" height="20" class="radioButton" >
+<img src="bilder/check.png" width="50" height="50" class="radioButton" >
+
 </div>
 </div>
 <div class="questionBox">
@@ -79,9 +92,12 @@
     Baden-Württembergs</p>
 </div>
 <div class="answer">
-<input type="radio" name="answer1" id="answer1A" value="true" class="radioButton">
+<input type="radio" name="answer5" id="answer5A" value="true" class="radioButton">
 
-<input type="radio" name="answer1" id="answer1B" value="false" class="radioButton">
+<input type="radio" name="answer5" id="answer5B" value="false" class="radioButton">
+<img src="bilder/cross.png" width="20" height="20" class="radioButton" >
+<img src="bilder/check.png" width="50" height="50" class="radioButton" >
+
 </div>
 </div>
 <div class="questionBox">
@@ -90,14 +106,17 @@
  betroffen als andere Baumarten</p>
 </div>
 <div class="answer">
-<input type="radio" name="answer1" id="answer1A" value="true" class="radioButton">
+<input type="radio" name="answer6" id="answer6A" value="true" class="radioButton">
 
-<input type="radio" name="answer1" id="answer1B" value="false" class="radioButton">
+<input type="radio" name="answer6" id="answer6B" value="false" class="radioButton">
+<img src="bilder/cross.png" width="20" height="20" class="radioButton" >
+<img src="bilder/check.png" width="50" height="50" class="radioButton" >    
+
 </div>
-</div>
+</div> -->
        </form>
        <div class="wrapper">
-    <button>Auswerten</button></a>
+    <button id="checkAnswers">Auswerten</button>
 </div>
     <div class="footer">
         <p>Ein Projekt von Ela und Marcel</p>

@@ -1,6 +1,3 @@
 "use strict";
-var KlimawandelSchwarzwald;
-(function (KlimawandelSchwarzwald) {
-    console.log("hey");
-})(KlimawandelSchwarzwald || (KlimawandelSchwarzwald = {}));
+console.log("hey");
 //# sourceMappingURL=script.js.map
