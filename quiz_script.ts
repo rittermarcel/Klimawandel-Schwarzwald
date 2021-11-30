@@ -1,6 +1,7 @@
 namespace KlimawandelSchwarzwald {
 
     export let crc2: CanvasRenderingContext2D;
+    let answers: string[] = [];
     export function handleLoad(): void {
         console.log("start");
         let checkAnswersButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("checkAnswers");
@@ -10,12 +11,11 @@ namespace KlimawandelSchwarzwald {
             return;
         crc2 = <CanvasRenderingContext2D>canvas.getContext("2d");
         let forms: NodeListOf<HTMLFormElement> = document.querySelectorAll("form");
-        forms[0].addEventListener("input", handleForm);
+        forms[0].addEventListener("input", getAnswers);
         loadQuestions();
         drawBackground();
         drawTree();
         drawDeadTree();
-        console.log(fragen[0].frage);
     }
 
     function drawBackground(): void {
@@ -32,49 +32,46 @@ namespace KlimawandelSchwarzwald {
         let appendQuestionsDiv: HTMLDivElement = <HTMLDivElement>document.getElementById("appendQuestions");
 
         for (let i: number = 0; i < fragen.length; i++) {
-            let questionBox: HTMLElement = document.createElement("div"); 
+            let questionBox: HTMLElement = document.createElement("div");
             questionBox.setAttribute("class", "questionBox");
             appendQuestionsDiv.appendChild(questionBox);
 
-            let question: HTMLElement = document.createElement("div"); 
+            let question: HTMLElement = document.createElement("div");
             question.setAttribute("class", "question");
             questionBox.appendChild(question);
 
-            let text: HTMLElement = document.createElement("p");  
+            let text: HTMLElement = document.createElement("p");
             text.setAttribute("class", "questionField");
             text.innerHTML = fragen[i].frage;
             question.appendChild(text);
 
-            let answer: HTMLElement = document.createElement("div"); 
+            let answer: HTMLElement = document.createElement("div");
             answer.setAttribute("class", "answer");
             questionBox.appendChild(answer);
 
-            let radioA: HTMLElement = document.createElement("input"); 
+            let radioA: HTMLElement = document.createElement("input");
             radioA.setAttribute("type", "radio");
+            radioA.setAttribute("value", "true");
             radioA.setAttribute("class", "radioButton");
-            radioA.setAttribute("name", "answer" + i);
+            radioA.setAttribute("name", JSON.stringify(i));
             answer.appendChild(radioA);
 
-            let radioB: HTMLElement = document.createElement("input"); 
+            let radioB: HTMLElement = document.createElement("input");
             radioB.setAttribute("type", "radio");
+            radioB.setAttribute("value", "false");
             radioB.setAttribute("class", "radioButton");
-            radioB.setAttribute("name", "answer" + i);
+            radioB.setAttribute("name", JSON.stringify(i));
             answer.appendChild(radioB);
 
-            if (fragen[i].antwort === false) {
-                let cross: HTMLElement = document.createElement("img");
-                cross.setAttribute("src", "bilder/cross.png");
-                cross.setAttribute("class", "radioButton");
-                answer.appendChild(cross);
+            let cross: HTMLElement = document.createElement("img");
+            cross.setAttribute("src", "bilder/cross.png");
+            cross.setAttribute("class", "radioButton");
+            answer.appendChild(cross);
 
-            } else {
-                let check: HTMLElement = document.createElement("img");
-                check.setAttribute("src", "bilder/check.png");
-                check.setAttribute("class", "radioButton");
-                answer.appendChild(check);
-            }
-
-
+            let check: HTMLElement = document.createElement("img");
+            check.setAttribute("src", "bilder/check.png");
+            check.setAttribute("class", "radioButton");
+            answer.appendChild(check);
 
         }
     }
@@ -88,13 +85,17 @@ namespace KlimawandelSchwarzwald {
         tree.drawDeadTree();
 
     }
+ 
+    function getAnswers(_event: Event): void {
+        let target: HTMLInputElement = <HTMLInputElement>_event.target;
+        let questionNumber: number = parseInt(target.name);
+        
+        answers[questionNumber] = target.value;
+
+        console.log(answers);
+    }
     function checkAnswers(): void {
         console.log("checking");
-    }
-    function handleForm(_event: Event): void {
-        console.log("change");
-        //let target: HTMLInputElement = <HTMLInputElement>_event.target;
-
     }
 
 }

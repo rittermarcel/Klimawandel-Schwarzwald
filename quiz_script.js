@@ -1,6 +1,7 @@
 "use strict";
 var KlimawandelSchwarzwald;
 (function (KlimawandelSchwarzwald) {
+    let answers = [];
     function handleLoad() {
         console.log("start");
         let checkAnswersButton = document.getElementById("checkAnswers");
@@ -10,12 +11,11 @@ var KlimawandelSchwarzwald;
             return;
         KlimawandelSchwarzwald.crc2 = canvas.getContext("2d");
         let forms = document.querySelectorAll("form");
-        forms[0].addEventListener("input", handleForm);
+        forms[0].addEventListener("input", getAnswers);
         loadQuestions();
         drawBackground();
         drawTree();
         drawDeadTree();
-        console.log(KlimawandelSchwarzwald.fragen[0].frage);
     }
     KlimawandelSchwarzwald.handleLoad = handleLoad;
     function drawBackground() {
@@ -44,26 +44,24 @@ var KlimawandelSchwarzwald;
             questionBox.appendChild(answer);
             let radioA = document.createElement("input");
             radioA.setAttribute("type", "radio");
+            radioA.setAttribute("value", "true");
             radioA.setAttribute("class", "radioButton");
-            radioA.setAttribute("name", "answer" + i);
+            radioA.setAttribute("name", JSON.stringify(i));
             answer.appendChild(radioA);
             let radioB = document.createElement("input");
             radioB.setAttribute("type", "radio");
+            radioB.setAttribute("value", "false");
             radioB.setAttribute("class", "radioButton");
-            radioB.setAttribute("name", "answer" + i);
+            radioB.setAttribute("name", JSON.stringify(i));
             answer.appendChild(radioB);
-            if (KlimawandelSchwarzwald.fragen[i].antwort === false) {
-                let cross = document.createElement("img");
-                cross.setAttribute("src", "bilder/cross.png");
-                cross.setAttribute("class", "radioButton");
-                answer.appendChild(cross);
-            }
-            else {
-                let check = document.createElement("img");
-                check.setAttribute("src", "bilder/check.png");
-                check.setAttribute("class", "radioButton");
-                answer.appendChild(check);
-            }
+            let cross = document.createElement("img");
+            cross.setAttribute("src", "bilder/cross.png");
+            cross.setAttribute("class", "radioButton");
+            answer.appendChild(cross);
+            let check = document.createElement("img");
+            check.setAttribute("src", "bilder/check.png");
+            check.setAttribute("class", "radioButton");
+            answer.appendChild(check);
         }
     }
     function drawTree() {
@@ -74,12 +72,14 @@ var KlimawandelSchwarzwald;
         let tree = new KlimawandelSchwarzwald.Baum("green", 300, 100);
         tree.drawDeadTree();
     }
+    function getAnswers(_event) {
+        let target = _event.target;
+        let questionNumber = parseInt(target.name);
+        answers[questionNumber] = target.value;
+        console.log(answers);
+    }
     function checkAnswers() {
         console.log("checking");
-    }
-    function handleForm(_event) {
-        console.log("change");
-        //let target: HTMLInputElement = <HTMLInputElement>_event.target;
     }
 })(KlimawandelSchwarzwald || (KlimawandelSchwarzwald = {}));
 //# sourceMappingURL=quiz_script.js.map
