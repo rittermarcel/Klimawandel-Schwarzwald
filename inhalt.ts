@@ -2,7 +2,7 @@ namespace KlimawandelSchwarzwald {
     export interface Fragen { //Interface Eis
         id: string;
         frage: string;
-        antwort: boolean;
+        antwort: string;
     }
     export let fragen: Fragen[]; //aray text
 

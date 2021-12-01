@@ -14,8 +14,6 @@ namespace KlimawandelSchwarzwald {
         forms[0].addEventListener("input", getAnswers);
         loadQuestions();
         drawBackground();
-        drawTree();
-        drawDeadTree();
     }
 
     function drawBackground(): void {
@@ -47,6 +45,7 @@ namespace KlimawandelSchwarzwald {
 
             let answer: HTMLElement = document.createElement("div");
             answer.setAttribute("class", "answer");
+            answer.setAttribute("id", "answer" + i);
             questionBox.appendChild(answer);
 
             let radioA: HTMLElement = document.createElement("input");
@@ -60,42 +59,52 @@ namespace KlimawandelSchwarzwald {
             radioB.setAttribute("type", "radio");
             radioB.setAttribute("value", "false");
             radioB.setAttribute("class", "radioButton");
+            radioB.setAttribute("id", "radioButtonB");
             radioB.setAttribute("name", JSON.stringify(i));
             answer.appendChild(radioB);
 
-            let cross: HTMLElement = document.createElement("img");
-            cross.setAttribute("src", "bilder/cross.png");
-            cross.setAttribute("class", "radioButton");
-            answer.appendChild(cross);
-
-            let check: HTMLElement = document.createElement("img");
-            check.setAttribute("src", "bilder/check.png");
-            check.setAttribute("class", "radioButton");
-            answer.appendChild(check);
-
+            
         }
     }
-
-    function drawTree(): void {
-        let tree: Baum = new Baum("green", 70, 165);
-        tree.drawTree();
-    }
-    function drawDeadTree(): void {
-        let tree: Baum = new Baum("green", 300, 100);
-        tree.drawDeadTree();
-
-    }
- 
     function getAnswers(_event: Event): void {
         let target: HTMLInputElement = <HTMLInputElement>_event.target;
         let questionNumber: number = parseInt(target.name);
-        
+
         answers[questionNumber] = target.value;
 
         console.log(answers);
     }
     function checkAnswers(): void {
-        console.log("checking");
+        for (let i: number = 0; i < answers.length; i++) {
+            let answerDiv: HTMLDivElement = <HTMLDivElement>document.getElementById("answer" + i);
+            if (answers[i] === fragen[i].antwort) {
+                let check: HTMLElement = document.createElement("img");
+                check.setAttribute("src", "bilder/check.png");
+                check.setAttribute("class", "radioButton");
+                check.setAttribute("id", "check");
+                answerDiv.appendChild(check);
+                drawTree();
+            } else {
+                let cross: HTMLElement = document.createElement("img");
+                cross.setAttribute("src", "bilder/cross.png");
+                cross.setAttribute("class", "radioButton");
+                cross.setAttribute("id", "cross");
+                answerDiv.appendChild(cross);
+                drawDeadTree();
+            }
+        }
+    }
+    function drawTree(): void {
+        let randomX: number = Math.floor(Math.random() * 700);
+        let tree: Baum = new Baum("green", randomX, 165);
+        tree.drawTree();
+    }
+    function drawDeadTree(): void {
+        let randomX: number = Math.floor(Math.random() * 700);
+
+        let tree: Baum = new Baum("green", randomX, 100);
+        tree.drawDeadTree();
+
     }
 
 }
