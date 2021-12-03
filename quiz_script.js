@@ -2,6 +2,7 @@
 var KlimawandelSchwarzwald;
 (function (KlimawandelSchwarzwald) {
     let answers = [];
+    let clickCountonButton = 0;
     function handleLoad() {
         console.log("start");
         let checkAnswersButton = document.getElementById("checkAnswers");
@@ -63,24 +64,35 @@ var KlimawandelSchwarzwald;
         console.log(answers);
     }
     function checkAnswers() {
-        for (let i = 0; i < answers.length; i++) {
-            let answerDiv = document.getElementById("answer" + i);
-            if (answers[i] === KlimawandelSchwarzwald.fragen[i].antwort) {
-                let check = document.createElement("img");
-                check.setAttribute("src", "bilder/check.png");
-                check.setAttribute("class", "radioButton");
-                check.setAttribute("id", "check");
-                answerDiv.appendChild(check);
-                drawTree();
+        clickCountonButton++;
+        if (clickCountonButton === 1) {
+            for (let i = 0; i < answers.length; i++) {
+                let answerDiv = document.getElementById("answer" + i);
+                if (answers[i] === KlimawandelSchwarzwald.fragen[i].antwort) {
+                    let check = document.createElement("img");
+                    check.setAttribute("src", "bilder/check.png");
+                    check.setAttribute("class", "radioButton");
+                    check.setAttribute("id", "check");
+                    answerDiv.appendChild(check);
+                    drawTree();
+                }
+                else if (answers[i] === undefined) {
+                    console.log("Aufgabe ausgelassen");
+                }
+                else {
+                    let cross = document.createElement("img");
+                    cross.setAttribute("src", "bilder/cross.png");
+                    cross.setAttribute("class", "radioButton");
+                    cross.setAttribute("id", "cross");
+                    answerDiv.appendChild(cross);
+                    drawDeadTree();
+                }
             }
-            else {
-                let cross = document.createElement("img");
-                cross.setAttribute("src", "bilder/cross.png");
-                cross.setAttribute("class", "radioButton");
-                cross.setAttribute("id", "cross");
-                answerDiv.appendChild(cross);
-                drawDeadTree();
-            }
+            let checkAnswersButton = document.getElementById("checkAnswers");
+            checkAnswersButton.innerHTML = "Quiz neu laden";
+        }
+        else {
+            window.location.reload();
         }
     }
     function drawTree() {

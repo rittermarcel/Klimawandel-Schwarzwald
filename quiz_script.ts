@@ -2,6 +2,7 @@ namespace KlimawandelSchwarzwald {
 
     export let crc2: CanvasRenderingContext2D;
     let answers: string[] = [];
+    let clickCountonButton: number = 0;
     export function handleLoad(): void {
         console.log("start");
         let checkAnswersButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("checkAnswers");
@@ -63,7 +64,7 @@ namespace KlimawandelSchwarzwald {
             radioB.setAttribute("name", JSON.stringify(i));
             answer.appendChild(radioB);
 
-            
+
         }
     }
     function getAnswers(_event: Event): void {
@@ -75,23 +76,34 @@ namespace KlimawandelSchwarzwald {
         console.log(answers);
     }
     function checkAnswers(): void {
-        for (let i: number = 0; i < answers.length; i++) {
-            let answerDiv: HTMLDivElement = <HTMLDivElement>document.getElementById("answer" + i);
-            if (answers[i] === fragen[i].antwort) {
-                let check: HTMLElement = document.createElement("img");
-                check.setAttribute("src", "bilder/check.png");
-                check.setAttribute("class", "radioButton");
-                check.setAttribute("id", "check");
-                answerDiv.appendChild(check);
-                drawTree();
-            } else {
-                let cross: HTMLElement = document.createElement("img");
-                cross.setAttribute("src", "bilder/cross.png");
-                cross.setAttribute("class", "radioButton");
-                cross.setAttribute("id", "cross");
-                answerDiv.appendChild(cross);
-                drawDeadTree();
+        clickCountonButton++;
+        if (clickCountonButton === 1) {
+            for (let i: number = 0; i < answers.length; i++) {
+                let answerDiv: HTMLDivElement = <HTMLDivElement>document.getElementById("answer" + i);
+                if (answers[i] === fragen[i].antwort) {
+                    let check: HTMLElement = document.createElement("img");
+                    check.setAttribute("src", "bilder/check.png");
+                    check.setAttribute("class", "radioButton");
+                    check.setAttribute("id", "check");
+                    answerDiv.appendChild(check);
+                    drawTree();
+                } else if (answers[i] === undefined) {
+                    console.log("Aufgabe ausgelassen");
+                }
+
+                else {
+                    let cross: HTMLElement = document.createElement("img");
+                    cross.setAttribute("src", "bilder/cross.png");
+                    cross.setAttribute("class", "radioButton");
+                    cross.setAttribute("id", "cross");
+                    answerDiv.appendChild(cross);
+                    drawDeadTree();
+                }
             }
+            let checkAnswersButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("checkAnswers");
+            checkAnswersButton.innerHTML = "Quiz neu laden";
+        } else {
+            window.location.reload();
         }
     }
     function drawTree(): void {
