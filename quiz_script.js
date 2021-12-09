@@ -18,12 +18,6 @@ var KlimawandelSchwarzwald;
     }
     KlimawandelSchwarzwald.handleLoad = handleLoad;
     function drawBackground() {
-        // let gradient: CanvasGradient = crc2.createLinearGradient(0, 0, 0, crc2.canvas.height);
-        // gradient.addColorStop(0.2, "lightblue");
-        // gradient.addColorStop(0.8, "white");
-        // gradient.addColorStop(1, "green");
-        // crc2.fillStyle = gradient;
-        // crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
         const image = document.getElementById("source");
         KlimawandelSchwarzwald.crc2.drawImage(image, 0, 0);
     }
@@ -98,13 +92,14 @@ var KlimawandelSchwarzwald;
         }
     }
     function drawTree() {
-        let randomX = Math.floor(Math.random() * 700);
-        let tree = new KlimawandelSchwarzwald.Baum("green", randomX, 165);
+        let randomX = Math.floor(Math.random() * 510) - 500;
+        console.log(randomX);
+        let tree = new KlimawandelSchwarzwald.Baum(randomX, 0);
         tree.drawTree();
     }
     function drawDeadTree() {
-        let randomX = Math.floor(Math.random() * 700);
-        let tree = new KlimawandelSchwarzwald.Baum("green", randomX, 100);
+        let randomX = Math.floor(Math.random() * 400) - 200;
+        let tree = new KlimawandelSchwarzwald.Baum(randomX, 100);
         tree.drawDeadTree();
     }
 })(KlimawandelSchwarzwald || (KlimawandelSchwarzwald = {}));

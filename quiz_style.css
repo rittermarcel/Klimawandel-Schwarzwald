@@ -68,12 +68,17 @@ a {
 
 canvas {
     background-color: lightblue;
+    border-color: white;
     border-style: solid;
     border-width: 3px;
     margin-bottom: 20px;
 
 }
 
+#deadTreePic1 img{
+    width: 400px;
+    height:400px;
+}
 form {
     margin-bottom: 100px;
 }

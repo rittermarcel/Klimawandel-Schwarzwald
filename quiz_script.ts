@@ -18,15 +18,8 @@ namespace KlimawandelSchwarzwald {
     }
 
     function drawBackground(): void {
-        // let gradient: CanvasGradient = crc2.createLinearGradient(0, 0, 0, crc2.canvas.height);
-        // gradient.addColorStop(0.2, "lightblue");
-        // gradient.addColorStop(0.8, "white");
-        // gradient.addColorStop(1, "green");
-
-        // crc2.fillStyle = gradient;
-        // crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
         const image: any = document.getElementById("source");
-        crc2.drawImage(image, 0,0);
+        crc2.drawImage(image, 0, 0);
     }
 
     function loadQuestions(): void {
@@ -109,14 +102,15 @@ namespace KlimawandelSchwarzwald {
         }
     }
     function drawTree(): void {
-        let randomX: number = Math.floor(Math.random() * 700);
-        let tree: Baum = new Baum("green", randomX, 165);
+        let randomX: number = Math.floor(Math.random() * 510) - 500;
+        console.log(randomX);
+        let tree: Baum = new Baum(randomX, 0);
         tree.drawTree();
     }
     function drawDeadTree(): void {
-        let randomX: number = Math.floor(Math.random() * 700);
+        let randomX: number = Math.floor(Math.random() * 400) - 200;
 
-        let tree: Baum = new Baum("green", randomX, 100);
+        let tree: Baum = new Baum(randomX, 100);
         tree.drawDeadTree();
 
     }
