@@ -18,12 +18,14 @@ var KlimawandelSchwarzwald;
     }
     KlimawandelSchwarzwald.handleLoad = handleLoad;
     function drawBackground() {
-        let gradient = KlimawandelSchwarzwald.crc2.createLinearGradient(0, 0, 0, KlimawandelSchwarzwald.crc2.canvas.height);
-        gradient.addColorStop(0.2, "lightblue");
-        gradient.addColorStop(0.8, "white");
-        gradient.addColorStop(1, "green");
-        KlimawandelSchwarzwald.crc2.fillStyle = gradient;
-        KlimawandelSchwarzwald.crc2.fillRect(0, 0, KlimawandelSchwarzwald.crc2.canvas.width, KlimawandelSchwarzwald.crc2.canvas.height);
+        // let gradient: CanvasGradient = crc2.createLinearGradient(0, 0, 0, crc2.canvas.height);
+        // gradient.addColorStop(0.2, "lightblue");
+        // gradient.addColorStop(0.8, "white");
+        // gradient.addColorStop(1, "green");
+        // crc2.fillStyle = gradient;
+        // crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
+        const image = document.getElementById("source");
+        KlimawandelSchwarzwald.crc2.drawImage(image, 0, 0);
     }
     function loadQuestions() {
         let appendQuestionsDiv = document.getElementById("appendQuestions");

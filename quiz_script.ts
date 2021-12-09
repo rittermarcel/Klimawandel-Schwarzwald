@@ -18,13 +18,15 @@ namespace KlimawandelSchwarzwald {
     }
 
     function drawBackground(): void {
-        let gradient: CanvasGradient = crc2.createLinearGradient(0, 0, 0, crc2.canvas.height);
-        gradient.addColorStop(0.2, "lightblue");
-        gradient.addColorStop(0.8, "white");
-        gradient.addColorStop(1, "green");
+        // let gradient: CanvasGradient = crc2.createLinearGradient(0, 0, 0, crc2.canvas.height);
+        // gradient.addColorStop(0.2, "lightblue");
+        // gradient.addColorStop(0.8, "white");
+        // gradient.addColorStop(1, "green");
 
-        crc2.fillStyle = gradient;
-        crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
+        // crc2.fillStyle = gradient;
+        // crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
+        const image: any = document.getElementById("source");
+        crc2.drawImage(image, 0,0);
     }
 
     function loadQuestions(): void {

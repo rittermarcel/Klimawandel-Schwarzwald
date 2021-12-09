@@ -1,6 +1,36 @@
-html {
-    background-image: url(bilder/trees.png);
+.bg {
+    background-image: url("bilder/drohneBackground.JPG");
+  
+    /* Full height */
+    height: 110vh;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
+.bg1 {
+    position: relative;
+    background-image: url("bilder/drohneBackground2.JPG");
+    /* Full height */
+    height: 110vh;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.bg2 {
+    background-image: url("bilder/drohneBackground.JPG");
+    
+    /* Full height */
+    height: 110vh;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
 
 body {
     min-height: 100vh;
@@ -15,7 +45,7 @@ body::after {
 }
 .header {
     position: relative;
-    margin-bottom: 70px;
+    margin-bottom: 30vh;
     top: -20px;
     left: 0px;
     background-color: white;
@@ -40,6 +70,7 @@ body::after {
     max-width: 60%;
     margin: 0 auto;
     text-align: center;
+    color: white;
 }
 
 a {
@@ -52,7 +83,6 @@ a {
 .footer {
 
     position: absolute;
-    margin-top: 50px;
     bottom: 0;
     width: 100%;
     height: 50px;
@@ -61,26 +91,34 @@ a {
 
 
 .text {
-    margin-bottom: 100px;
+    margin-bottom: 80px;
 }
 
 video {
-    margin-top: 50px;
-    margin-bottom: 50px;
-    width: 70%;
-    height: 70%;
+    position: relative;
+    margin-top: 20vh;
+    width: 100%;
+    height: 100%;
     border-style: solid;
     border-width: 4px;
 }
 
-button {
+.wrapper button {
     width: 200px;
     height: 60px;
-    margin-top: 20px;
-    margin-bottom: 100px;
-    background-color: aquamarine;
+    margin-top: 40px;
+    background-color: white;
     font-size: 15px;
     cursor: pointer;
+    border-style: solid;
+    border-width: 4px;
+    border-color: black;
+}
+.wrapper button:hover {
+    margin-top: 35px;
+    width: 220px;
+    height: 70px;
+    font-size: 17px;
 }
 
 .footer p {
@@ -89,3 +127,17 @@ button {
     top: 7px;
     font-size: 12px;
 }
+.space {
+    position: relative;
+    width: 100%;
+    height: 10px;  
+}
+.textBox {
+    position: relative;
+    margin-top: 40vh;
+
+
+}
+
+
+
