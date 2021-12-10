@@ -7,11 +7,11 @@ var KlimawandelSchwarzwald;
             this.positionY = _positionY;
         }
         drawTree() {
-            const image = document.getElementById("treePic1");
+            let image = document.getElementById("treePic1");
             KlimawandelSchwarzwald.crc2.drawImage(image, this.positionX, this.positionY);
         }
         drawDeadTree() {
-            const image = document.getElementById("deadTreePic1");
+            let image = document.getElementById("deadTreePic1");
             KlimawandelSchwarzwald.crc2.drawImage(image, this.positionX, this.positionY);
         }
     }

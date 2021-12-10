@@ -9,11 +9,11 @@ namespace KlimawandelSchwarzwald {
 
         }
         public drawTree(): void {
-            const image: any = document.getElementById("treePic1");
+            let image: any = document.getElementById("treePic1");
             crc2.drawImage(image, this.positionX, this.positionY);
         }
         public drawDeadTree(): void {
-            const image: any = document.getElementById("deadTreePic1");
+            let image: any = document.getElementById("deadTreePic1");
             crc2.drawImage(image, this.positionX, this.positionY);
         }
     }
