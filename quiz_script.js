@@ -92,14 +92,16 @@ var KlimawandelSchwarzwald;
         }
     }
     function drawTree() {
-        let randomX = Math.floor(Math.random() * 510) - 500;
+        let randomX = Math.floor(Math.random() * 1080) - 380;
+        let randomY = -(Math.floor(Math.random() * 120) - 60);
         console.log(randomX);
-        let tree = new KlimawandelSchwarzwald.Baum(randomX, 0);
+        let tree = new KlimawandelSchwarzwald.Baum(randomX, -randomY);
         tree.drawTree();
     }
     function drawDeadTree() {
-        let randomX = Math.floor(Math.random() * 400) - 200;
-        let tree = new KlimawandelSchwarzwald.Baum(randomX, 100);
+        let randomX = Math.floor(Math.random() * 800);
+        let randomY = -(Math.floor(Math.random() * 120));
+        let tree = new KlimawandelSchwarzwald.Baum(randomX, randomY);
         tree.drawDeadTree();
     }
 })(KlimawandelSchwarzwald || (KlimawandelSchwarzwald = {}));

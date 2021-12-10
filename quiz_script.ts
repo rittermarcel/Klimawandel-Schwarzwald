@@ -102,15 +102,18 @@ namespace KlimawandelSchwarzwald {
         }
     }
     function drawTree(): void {
-        let randomX: number = Math.floor(Math.random() * 510) - 500;
-        console.log(randomX);
-        let tree: Baum = new Baum(randomX, 0);
+        let randomX: number = Math.floor(Math.random() * 1080) - 380;
+        let randomY: number = -(Math.floor(Math.random() * 120) - 60); 
+
+        console.log(randomX); 
+        let tree: Baum = new Baum(randomX, -randomY);
         tree.drawTree();
     }
     function drawDeadTree(): void {
-        let randomX: number = Math.floor(Math.random() * 400) - 200;
+        let randomX: number = Math.floor(Math.random() * 800);
+        let randomY: number = -(Math.floor(Math.random() * 120));
 
-        let tree: Baum = new Baum(randomX, 100);
+        let tree: Baum = new Baum(randomX, randomY);
         tree.drawDeadTree();
 
     }
