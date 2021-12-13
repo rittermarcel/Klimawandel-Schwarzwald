@@ -152,6 +152,13 @@ button {
     top: 7px;
     font-size: 12px;
 }
+.infoCanvasHighlighted{
+    color: red;
+    font-size: 26px;
+}
+.color-red{
+    color: #F00;
+}
 
 @media (max-width: 1700px) {
     canvas {

@@ -2,9 +2,13 @@ namespace KlimawandelSchwarzwald {
 
     export let crc2: CanvasRenderingContext2D;
     let answers: string[] = [];
-    let clickCountonButton: number = 0;
+    let clickCounterButton: number = 0;
+    let imgData: any;
+    let falscheAntworten: number = 0;
+    let richtigeAntworten: number = 0;
     export function handleLoad(): void {
         console.log("start");
+
         let checkAnswersButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("checkAnswers");
         checkAnswersButton.addEventListener("click", checkAnswers);
         let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.querySelector("canvas");
@@ -15,11 +19,24 @@ namespace KlimawandelSchwarzwald {
         forms[0].addEventListener("input", getAnswers);
         loadQuestions();
         drawBackground();
+        imgData = crc2.getImageData(0, 0, crc2.canvas.width, crc2.canvas.height);
+
+        drawDefaultTrees();
     }
 
     function drawBackground(): void {
         const image: any = document.getElementById("source");
         crc2.drawImage(image, 0, 0);
+
+    }
+    function drawDefaultTrees(): void {
+        let x: number = -30;
+        for (let i: number = 0; i <= 6; i++) {
+            drawTree(x, 150);
+            console.log("x " + x);
+            x = x + 150;
+            //(Math.floor( Math.random() * 200 ) + 100);
+        }
     }
 
     function loadQuestions(): void {
@@ -71,8 +88,9 @@ namespace KlimawandelSchwarzwald {
         console.log(answers);
     }
     function checkAnswers(): void {
-        clickCountonButton++;
-        if (clickCountonButton === 1) {
+        
+        clickCounterButton++;
+        if (clickCounterButton === 1) {
             for (let i: number = 0; i < answers.length; i++) {
                 let answerDiv: HTMLDivElement = <HTMLDivElement>document.getElementById("answer" + i);
                 if (answers[i] === fragen[i].antwort) {
@@ -81,7 +99,8 @@ namespace KlimawandelSchwarzwald {
                     check.setAttribute("class", "radioButton");
                     check.setAttribute("id", "check");
                     answerDiv.appendChild(check);
-                    drawTree();
+                    richtigeAntworten = richtigeAntworten + 1;
+                    // drawTree();
                 } else if (answers[i] === undefined) {
                     console.log("Aufgabe ausgelassen");
                 }
@@ -92,28 +111,53 @@ namespace KlimawandelSchwarzwald {
                     cross.setAttribute("class", "radioButton");
                     cross.setAttribute("id", "cross");
                     answerDiv.appendChild(cross);
-                    drawDeadTree();
+                    falscheAntworten = falscheAntworten + 1;
                 }
             }
+            crc2.putImageData(imgData, 0, 0);
+            let x: number = -30;
+
+            let prozentRichtigeAntworten: number = (richtigeAntworten / answers.length) * 100;
+            let prozentFalscheAntworten: number = (falscheAntworten / answers.length * 100);
+
+            console.log(prozentRichtigeAntworten + " %");
+            console.log(prozentFalscheAntworten + " %");
+
+            let healthyTreesNumber: number = Math.round((prozentRichtigeAntworten * 6) / 100);
+            let deadTreesNumber: number = Math.round((prozentFalscheAntworten * 6) / 100);
+
+            console.log("healthy " + healthyTreesNumber);
+
+            console.log("dead " + deadTreesNumber);
+
+            for (let i: number = 0; i < healthyTreesNumber; i++) {
+                drawTree(x, 150);
+                console.log("x " + x);
+                x = x + 150;
+                //(Math.floor( Math.random() * 200 ) + 100);
+            }
+            for (let i: number = 0; i < deadTreesNumber; i++) {
+                drawDeadTree(x, 150);
+                console.log("x " + x);
+                x = x + 150;
+                //(Math.floor( Math.random() * 200 ) + 100);
+            }
+
             let checkAnswersButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("checkAnswers");
+            let infoCanvas: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("infoCanvas");
+            infoCanvas.innerHTML = "Durch deine Antworten sind " + "<span class='color-red'> " + deadTreesNumber + "</span>" + " Bäume abgestorben." + " Du hast " + "<span class='color-red'> " + falscheAntworten + "</span>" + " Frage/n falsch beantwortet";
+            infoCanvas.setAttribute("class", "infoCanvasHighlighted");
             checkAnswersButton.innerHTML = "Quiz neu laden";
         } else {
             window.location.reload();
         }
     }
-    function drawTree(): void {
-        let randomX: number = Math.floor(Math.random() * 1080) - 380;
-        let randomY: number = -(Math.floor(Math.random() * 120) - 60); 
-
-        console.log(randomX); 
-        let tree: Baum = new Baum(randomX, -randomY);
+    function drawTree(x: number, y: number): void {
+        let tree: Baum = new Baum(x, y);
         tree.drawTree();
     }
-    function drawDeadTree(): void {
-        let randomX: number = Math.floor(Math.random() * 800);
-        let randomY: number = -(Math.floor(Math.random() * 120));
-
-        let tree: Baum = new Baum(randomX, randomY);
+    function drawDeadTree(x: number, y: number): void {
+        let tree: Baum = new Baum(x, y);
         tree.drawDeadTree();
 
     }

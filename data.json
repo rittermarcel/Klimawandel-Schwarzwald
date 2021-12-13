@@ -4,5 +4,6 @@
     {"id": "3", "frage": "Seit 2017 siedeln sich erstmals vereinzelt wieder Wölfe im Schwarzwald an?", "antwort": "true"},
     {"id": "4", "frage": "Etwa 90 % des Schwarzwald-Baumbestands machen Tannen und Kiefern aus", "antwort": "false"},
     {"id": "5", "frage": "Der Schwarzwald liegt im Südosten Baden-Württembergs", "antwort": "true"},
-    {"id": "6", "frage": "Fichten sind eher vom Klimawandel betroffen als andere Baumarten", "antwort": "true"}
+    {"id": "6", "frage": "Fichten sind eher vom Klimawandel betroffen als andere Baumarten", "antwort": "true"},
+    {"id": "7", "frage": "Testfrage", "antwort": "true"}
 ]

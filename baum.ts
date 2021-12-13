@@ -11,6 +11,7 @@ namespace KlimawandelSchwarzwald {
         public drawTree(): void {
             let image: any = document.getElementById("treePic1");
             crc2.drawImage(image, this.positionX, this.positionY);
+        
         }
         public drawDeadTree(): void {
             let image: any = document.getElementById("deadTreePic1");
