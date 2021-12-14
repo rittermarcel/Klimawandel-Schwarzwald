@@ -116,14 +116,14 @@ var KlimawandelSchwarzwald;
                 //(Math.floor( Math.random() * 200 ) + 100);
             }
             for (let i = 0; i < deadTreesNumber; i++) {
-                drawDeadTree(x, 150);
+                drawDeadTree(x, 180);
                 console.log("x " + x);
                 x = x + 150;
                 //(Math.floor( Math.random() * 200 ) + 100);
             }
             let checkAnswersButton = document.getElementById("checkAnswers");
             let infoCanvas = document.getElementById("infoCanvas");
-            infoCanvas.innerHTML = "Durch deine Antworten sind " + "<span class='color-red'> " + deadTreesNumber + "</span>" + " Bäume abgestorben." + " Du hast " + "<span class='color-red'> " + falscheAntworten + "</span>" + " Frage/n falsch beantwortet";
+            infoCanvas.innerHTML = "Durch deine Antworten sind " + "<span class='color-red'> " + deadTreesNumber + "</span>" + " Bäume abgestorben." + " Du hast " + "<span class='color-red'> " + falscheAntworten + "</span>" + " Frage/n falsch " + "und " + "<span class='color-green'> " + richtigeAntworten + "</span>" + " richtige beantwortet.";
             infoCanvas.setAttribute("class", "infoCanvasHighlighted");
             checkAnswersButton.innerHTML = "Quiz neu laden";
         }
