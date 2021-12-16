@@ -34,7 +34,7 @@ var KlimawandelSchwarzwald;
             treeHeight.push(randomHeight);
             drawTree(x, randomHeight);
             console.log("x " + x);
-            x = x + 150;
+            x = x + 170;
         }
     }
     function loadQuestions() {
@@ -114,12 +114,12 @@ var KlimawandelSchwarzwald;
             for (let i = 0; i < healthyTreesNumber; i++) {
                 drawTree(x, treeHeight[i]);
                 console.log("x " + x);
-                x = x + 150;
+                x = x + 170;
             }
             for (let i = 1; i <= deadTreesNumber; i++) {
                 drawDeadTree(x, treeHeight[healthyTreesNumber]);
                 console.log("x " + x);
-                x = x + 150;
+                x = x + 170;
             }
             let checkAnswersButton = document.getElementById("checkAnswers");
             let infoCanvas = document.getElementById("infoCanvas");
