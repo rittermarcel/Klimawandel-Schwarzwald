@@ -7,6 +7,7 @@ var KlimawandelSchwarzwald;
     let falscheAntworten = 0;
     let richtigeAntworten = 0;
     let treeHeight = [];
+    let treeDistance = [];
     function handleLoad() {
         console.log("start");
         let checkAnswersButton = document.getElementById("checkAnswers");
@@ -31,10 +32,12 @@ var KlimawandelSchwarzwald;
         let x = -30;
         for (let i = 0; i < 6; i++) {
             let randomHeight = Math.floor(Math.random() * 60) + 110;
+            let randomDistance = Math.floor(Math.random() * 60) + 140;
             treeHeight.push(randomHeight);
+            treeDistance.push(x);
             drawTree(x, randomHeight);
             console.log("x " + x);
-            x = x + 170;
+            x = x + randomDistance;
         }
     }
     function loadQuestions() {
@@ -112,12 +115,12 @@ var KlimawandelSchwarzwald;
             console.log("healthy " + healthyTreesNumber);
             console.log("dead " + deadTreesNumber);
             for (let i = 0; i < healthyTreesNumber; i++) {
-                drawTree(x, treeHeight[i]);
+                drawTree(treeDistance[i], treeHeight[i]);
                 console.log("x " + x);
                 x = x + 170;
             }
-            for (let i = 1; i <= deadTreesNumber; i++) {
-                drawDeadTree(x, treeHeight[healthyTreesNumber]);
+            for (let i = 0; i < deadTreesNumber; i++) {
+                drawDeadTree(treeDistance[healthyTreesNumber + i], treeHeight[healthyTreesNumber + i]);
                 console.log("x " + x);
                 x = x + 170;
             }

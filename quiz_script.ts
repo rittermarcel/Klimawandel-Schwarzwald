@@ -7,6 +7,7 @@ namespace KlimawandelSchwarzwald {
     let falscheAntworten: number = 0;
     let richtigeAntworten: number = 0;
     let treeHeight: number[] = [];
+    let treeDistance: number[] = [];
     export function handleLoad(): void {
         console.log("start");
 
@@ -34,10 +35,12 @@ namespace KlimawandelSchwarzwald {
         let x: number = -30;
         for (let i: number = 0; i < 6; i++) {
             let randomHeight: number = Math.floor( Math.random() * 60 ) + 110;
+            let randomDistance: number = Math.floor( Math.random() * 60 ) + 140;
             treeHeight.push(randomHeight);
+            treeDistance.push(x);
             drawTree(x, randomHeight);
             console.log("x " + x);
-            x = x + 170;
+            x = x + randomDistance;
         }
     }
 
@@ -133,12 +136,12 @@ namespace KlimawandelSchwarzwald {
             console.log("dead " + deadTreesNumber);
 
             for (let i: number = 0; i < healthyTreesNumber; i++) {
-                drawTree(x, treeHeight[i]);
+                drawTree(treeDistance[i], treeHeight[i]);
                 console.log("x " + x);
                 x = x + 170;
             }
-            for (let i: number = 1; i <= deadTreesNumber; i++) {
-                drawDeadTree(x, treeHeight[healthyTreesNumber]);
+            for (let i: number = 0; i < deadTreesNumber; i++) {
+                drawDeadTree(treeDistance[healthyTreesNumber + i], treeHeight[healthyTreesNumber + i]);
                 console.log("x " + x);
                 x = x + 170;
                 
