@@ -1,29 +1,23 @@
 .bg {
     background-image: url("bilder/drohneBackground.JPG");
-  
-    /* Full height */
     height: 110vh;
-    /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
+
 .bg1 {
     position: relative;
     background-image: url("bilder/drohneBackground2.JPG");
-    /* Full height */
     height: 110vh;
-    /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
+
 .bg2 {
     background-image: url("bilder/drohneBackground.JPG");
-    
-    /* Full height */
     height: 110vh;
-    /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -43,20 +37,23 @@ body::after {
     display: block;
     height: 50px;
 }
+
 .header {
     position: relative;
     margin-bottom: 30vh;
-    top: -20px;
+    top: -25px;
     left: 0px;
     background-color: white;
     width: 100%;
-    min-height: 100px;  
+    min-height: 90px;
 }
+
 .header h1 {
     position: relative;
     text-align: center;
-    top:15px;
+    top: 15px;
 }
+
 .header p {
     position: relative;
     margin-top: 25px;
@@ -76,8 +73,8 @@ body::after {
 
 a {
     text-decoration: none;
-    color:inherit;
-    
+    color: inherit;
+
 }
 
 
@@ -115,6 +112,7 @@ video {
     border-width: 4px;
     border-color: black;
 }
+
 .wrapper button:hover {
     margin-top: 35px;
     width: 220px;
@@ -128,17 +126,16 @@ video {
     top: 7px;
     font-size: 12px;
 }
+
 .space {
     position: relative;
     width: 100%;
-    height: 10px;  
+    height: 10px;
 }
+
 .textBox {
     position: relative;
     margin-top: 40vh;
 
 
 }
-
-
-
