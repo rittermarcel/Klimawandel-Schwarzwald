@@ -133,9 +133,39 @@ video {
     height: 10px;
 }
 
-.textBox {
+#textBox {
     position: relative;
     margin-top: 40vh;
 
+
+}
+@media (max-width: 1200px) {
+    .bg {
+        height: 50vh;
+    }
+    
+    .bg1 {
+        height: 50vh;
+
+    }
+    
+    .bg2 {
+        height: 50vh;
+    }
+    #textBox {
+        margin-top: 20vh;
+    }
+    .header {
+        margin-bottom: 10vh;
+
+    }
+    video {
+        margin-top: 10vh;
+    }
+    .wrapper {
+
+        max-width: 80%;
+
+    }
 
 }
