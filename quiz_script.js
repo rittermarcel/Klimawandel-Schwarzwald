@@ -79,59 +79,64 @@ var KlimawandelSchwarzwald;
         console.log(answers);
     }
     function checkAnswers() {
-        clickCounterButton++;
-        if (clickCounterButton === 1) {
-            for (let i = 0; i < answers.length; i++) {
-                let answerDiv = document.getElementById("answer" + i);
-                if (answers[i] === KlimawandelSchwarzwald.fragen[i].antwort) {
-                    let check = document.createElement("img");
-                    check.setAttribute("src", "bilder/check.png");
-                    check.setAttribute("class", "radioButton");
-                    check.setAttribute("id", "check");
-                    answerDiv.appendChild(check);
-                    richtigeAntworten = richtigeAntworten + 1;
-                    // drawTree();
-                }
-                else if (answers[i] === undefined) {
-                    console.log("Aufgabe ausgelassen");
-                }
-                else {
-                    let cross = document.createElement("img");
-                    cross.setAttribute("src", "bilder/cross.png");
-                    cross.setAttribute("class", "radioButton");
-                    cross.setAttribute("id", "cross");
-                    answerDiv.appendChild(cross);
-                    falscheAntworten = falscheAntworten + 1;
-                }
-            }
-            KlimawandelSchwarzwald.crc2.putImageData(imgData, 0, 0);
-            let x = -30;
-            let prozentRichtigeAntworten = (richtigeAntworten / answers.length) * 100;
-            let prozentFalscheAntworten = (falscheAntworten / answers.length * 100);
-            console.log(prozentRichtigeAntworten + " %");
-            console.log(prozentFalscheAntworten + " %");
-            let healthyTreesNumber = Math.round((prozentRichtigeAntworten * 6) / 100);
-            let deadTreesNumber = Math.round((prozentFalscheAntworten * 6) / 100);
-            console.log("healthy " + healthyTreesNumber);
-            console.log("dead " + deadTreesNumber);
-            for (let i = 0; i < healthyTreesNumber; i++) {
-                drawTree(treeDistance[i], treeHeight[i]);
-                console.log("x " + x);
-                x = x + 170;
-            }
-            for (let i = 0; i < deadTreesNumber; i++) {
-                drawDeadTree(treeDistance[healthyTreesNumber + i], treeHeight[healthyTreesNumber + i]);
-                console.log("x " + x);
-                x = x + 170;
-            }
-            let checkAnswersButton = document.getElementById("checkAnswers");
-            let infoCanvas = document.getElementById("infoCanvas");
-            infoCanvas.innerHTML = "Durch deine Antworten sind " + "<span class='color-red'> " + deadTreesNumber + "</span>" + " Bäume abgestorben." + " Du hast " + "<span class='color-red'> " + falscheAntworten + "</span>" + " Frage/n falsch " + "und " + "<span class='color-green'> " + richtigeAntworten + "</span>" + " richtige beantwortet.";
+        let infoCanvas = document.getElementById("infoCanvas");
+        if (answers.length < KlimawandelSchwarzwald.fragen.length) {
+            infoCanvas.innerHTML = "<span class='color-red'>Bitte noch fehlende Fragen beantworten!</span>";
             infoCanvas.setAttribute("class", "infoCanvasHighlighted");
-            checkAnswersButton.innerHTML = "Quiz neu laden";
         }
         else {
-            window.location.reload();
+            clickCounterButton++;
+            if (clickCounterButton === 1) {
+                for (let i = 0; i < answers.length; i++) {
+                    let answerDiv = document.getElementById("answer" + i);
+                    if (answers[i] === KlimawandelSchwarzwald.fragen[i].antwort) {
+                        let check = document.createElement("img");
+                        check.setAttribute("src", "bilder/check.png");
+                        check.setAttribute("class", "radioButton");
+                        check.setAttribute("id", "check");
+                        answerDiv.appendChild(check);
+                        richtigeAntworten = richtigeAntworten + 1;
+                    }
+                    else if (answers[i] === undefined) {
+                        console.log("Aufgabe ausgelassen");
+                    }
+                    else {
+                        let cross = document.createElement("img");
+                        cross.setAttribute("src", "bilder/cross.png");
+                        cross.setAttribute("class", "radioButton");
+                        cross.setAttribute("id", "cross");
+                        answerDiv.appendChild(cross);
+                        falscheAntworten = falscheAntworten + 1;
+                    }
+                }
+                KlimawandelSchwarzwald.crc2.putImageData(imgData, 0, 0);
+                let x = -30;
+                let prozentRichtigeAntworten = (richtigeAntworten / answers.length) * 100;
+                let prozentFalscheAntworten = (falscheAntworten / answers.length * 100);
+                console.log(prozentRichtigeAntworten + " %");
+                console.log(prozentFalscheAntworten + " %");
+                let healthyTreesNumber = Math.round((prozentRichtigeAntworten * 6) / 100);
+                let deadTreesNumber = Math.round((prozentFalscheAntworten * 6) / 100);
+                console.log("healthy " + healthyTreesNumber);
+                console.log("dead " + deadTreesNumber);
+                for (let i = 0; i < healthyTreesNumber; i++) {
+                    drawTree(treeDistance[i], treeHeight[i]);
+                    console.log("x " + x);
+                    x = x + 170;
+                }
+                for (let i = 0; i < deadTreesNumber; i++) {
+                    drawDeadTree(treeDistance[healthyTreesNumber + i], treeHeight[healthyTreesNumber + i]);
+                    console.log("x " + x);
+                    x = x + 170;
+                }
+                let checkAnswersButton = document.getElementById("checkAnswers");
+                infoCanvas.innerHTML = "Durch deine Antworten sind " + "<span class='color-red'> " + deadTreesNumber + "</span>" + " Bäume abgestorben." + " Du hast " + "<span class='color-red'> " + falscheAntworten + "</span>" + " Frage/n falsch " + "und " + "<span class='color-green'> " + richtigeAntworten + "</span>" + " richtige beantwortet.";
+                infoCanvas.setAttribute("class", "infoCanvasHighlighted");
+                checkAnswersButton.innerHTML = "Quiz neu laden";
+            }
+            else {
+                window.location.reload();
+            }
         }
     }
     function drawTree(x, y) {

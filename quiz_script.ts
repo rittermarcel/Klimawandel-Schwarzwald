@@ -34,8 +34,8 @@ namespace KlimawandelSchwarzwald {
     function drawDefaultTrees(): void {
         let x: number = -30;
         for (let i: number = 0; i < 6; i++) {
-            let randomHeight: number = Math.floor( Math.random() * 60 ) + 110;
-            let randomDistance: number = Math.floor( Math.random() * 60 ) + 140;
+            let randomHeight: number = Math.floor(Math.random() * 60) + 110;
+            let randomDistance: number = Math.floor(Math.random() * 60) + 140;
             treeHeight.push(randomHeight);
             treeDistance.push(x);
             drawTree(x, randomHeight);
@@ -93,7 +93,11 @@ namespace KlimawandelSchwarzwald {
         console.log(answers);
     }
     function checkAnswers(): void {
-        
+        let infoCanvas: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("infoCanvas");
+        if (answers.length < fragen.length) {
+            infoCanvas.innerHTML = "<span class='color-red'>Bitte noch fehlende Fragen beantworten!</span>";
+            infoCanvas.setAttribute("class", "infoCanvasHighlighted");
+        } else {
         clickCounterButton++;
         if (clickCounterButton === 1) {
             for (let i: number = 0; i < answers.length; i++) {
@@ -105,7 +109,6 @@ namespace KlimawandelSchwarzwald {
                     check.setAttribute("id", "check");
                     answerDiv.appendChild(check);
                     richtigeAntworten = richtigeAntworten + 1;
-                    // drawTree();
                 } else if (answers[i] === undefined) {
                     console.log("Aufgabe ausgelassen");
                 }
@@ -144,17 +147,20 @@ namespace KlimawandelSchwarzwald {
                 drawDeadTree(treeDistance[healthyTreesNumber + i], treeHeight[healthyTreesNumber + i]);
                 console.log("x " + x);
                 x = x + 170;
-                
+
             }
 
             let checkAnswersButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("checkAnswers");
-            let infoCanvas: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("infoCanvas");
+
+
             infoCanvas.innerHTML = "Durch deine Antworten sind " + "<span class='color-red'> " + deadTreesNumber + "</span>" + " Bäume abgestorben." + " Du hast " + "<span class='color-red'> " + falscheAntworten + "</span>" + " Frage/n falsch " + "und " + "<span class='color-green'> " + richtigeAntworten + "</span>" + " richtige beantwortet.";
+
             infoCanvas.setAttribute("class", "infoCanvasHighlighted");
             checkAnswersButton.innerHTML = "Quiz neu laden";
         } else {
             window.location.reload();
         }
+    }
     }
     function drawTree(x: number, y: number): void {
         let tree: Baum = new Baum(x, y);
