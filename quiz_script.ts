@@ -157,6 +157,12 @@ namespace KlimawandelSchwarzwald {
 
             infoCanvas.setAttribute("class", "infoCanvasHighlighted");
             checkAnswersButton.innerHTML = "Quiz neu laden";
+
+
+            let optionen: HTMLDivElement = <HTMLDivElement>document.getElementById("optionen");
+            optionen.removeAttribute("class");
+            optionen.setAttribute("class", "optionenResponsive");
+
         } else {
             window.location.reload();
         }

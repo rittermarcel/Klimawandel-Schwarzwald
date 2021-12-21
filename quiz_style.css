@@ -103,7 +103,22 @@ form {
 
 }
 
+
 .optionen h3 {
+    margin-right: 30px;
+    color: white;
+}
+
+.optionenResponsive {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    top: 40px;
+    margin-left: 400px;
+
+}
+.optionenResponsive h3 {
     margin-right: 30px;
     color: white;
 }
@@ -210,21 +225,25 @@ button:hover {
     }
 }
 
-@media (max-width: 621px) {
+@media (max-width: 700px) {
     #cross {
         position: relative;
-        top:50px;
+        top:40px;
     }
     #check {
         position: relative;
-        top:50px;
+        top:40px;
     }
     .optionen {
         margin-left: 30px;
     }
+    
+    .optionenResponsive {
+        margin-left: -60px;
+    }
   
     .radioButton {
-        top: 50px;
+        top: 10px;
         margin-bottom: 30px;
         margin-left: 20px;
     margin-right: 20px;

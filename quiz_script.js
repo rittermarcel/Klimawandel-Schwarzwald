@@ -133,6 +133,9 @@ var KlimawandelSchwarzwald;
                 infoCanvas.innerHTML = "Durch deine Antworten sind " + "<span class='color-red'> " + deadTreesNumber + "</span>" + " Bäume abgestorben." + " Du hast " + "<span class='color-red'> " + falscheAntworten + "</span>" + " Frage/n falsch " + "und " + "<span class='color-green'> " + richtigeAntworten + "</span>" + " richtige beantwortet.";
                 infoCanvas.setAttribute("class", "infoCanvasHighlighted");
                 checkAnswersButton.innerHTML = "Quiz neu laden";
+                let optionen = document.getElementById("optionen");
+                optionen.removeAttribute("class");
+                optionen.setAttribute("class", "optionenResponsive");
             }
             else {
                 window.location.reload();
