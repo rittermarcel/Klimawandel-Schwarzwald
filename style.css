@@ -144,16 +144,16 @@ video {
 }
 @media (max-width: 1200px) {
     .bg {
-        height: 50vh;
+        min-height: 30vh;
     }
     
     .bg1 {
-        height: 50vh;
+        min-height: 30vh;
 
     }
     
     .bg2 {
-        height: 80vh;
+        min-height: 30vh;
     }
     #textBox {
         margin-top: 20vh;
