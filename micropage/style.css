@@ -1,9 +1,8 @@
 html {
-    position: relative;
     background-image: url("bilder/microPageBackground.JPG");
-    height: 110vh;
     background-position: center;
     background-repeat: no-repeat;
+    height:100%;
     background-size: cover;
     color:white;
 }
