@@ -2,9 +2,9 @@ html {
     background-image: url("bilder/microPageBackground.JPG");
     background-position: center;
     background-repeat: no-repeat;
-    height:100%;
     background-size: cover;
     color:white;
+    text-align: center;
 }
 h1 {
     position: relative;
@@ -12,4 +12,19 @@ h1 {
 }
 p {
     text-align: center;
+}
+.screenshots {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.pic img{
+    border-style: solid;
+    border-color: white;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-bottom: 100px;
+    width:400px;
+    height:300px;
 }
