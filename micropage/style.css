@@ -29,3 +29,6 @@ p {
     width:400px;
     height:300px;
 }
+.pic img:hover {
+    transform: scale(1.4);
+}
