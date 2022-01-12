@@ -16,10 +16,10 @@ var KlimawandelSchwarzwald;
         if (!canvas)
             return;
         KlimawandelSchwarzwald.crc2 = canvas.getContext("2d");
+        drawBackground();
         let forms = document.querySelectorAll("form");
         forms[0].addEventListener("input", getAnswers);
         loadQuestions();
-        drawBackground();
         imgData = KlimawandelSchwarzwald.crc2.getImageData(0, 0, KlimawandelSchwarzwald.crc2.canvas.width, KlimawandelSchwarzwald.crc2.canvas.height);
         drawDefaultTrees();
     }

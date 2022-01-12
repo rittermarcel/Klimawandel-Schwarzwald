@@ -17,10 +17,10 @@ namespace KlimawandelSchwarzwald {
         if (!canvas)
             return;
         crc2 = <CanvasRenderingContext2D>canvas.getContext("2d");
+        drawBackground();
         let forms: NodeListOf<HTMLFormElement> = document.querySelectorAll("form");
         forms[0].addEventListener("input", getAnswers);
         loadQuestions();
-        drawBackground();
         imgData = crc2.getImageData(0, 0, crc2.canvas.width, crc2.canvas.height);
 
         drawDefaultTrees();
