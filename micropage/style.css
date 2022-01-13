@@ -37,6 +37,7 @@ p {
     margin-bottom: 100px;
     width:400px;
     height:300px;
+    cursor: pointer;
 }
 .pic img:hover {
     transform: scale(1.4);
