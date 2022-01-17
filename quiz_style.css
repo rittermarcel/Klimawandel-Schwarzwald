@@ -240,19 +240,11 @@ button:hover {
     }
 }
 
-@media (max-width: 700px) {
-    #cross {
-        position: relative;
-        top: 40px;
-    }
-
-    #check {
-        position: relative;
-        top: 40px;
-    }
+@media (max-width: 615px) {
+  
 
     .optionen {
-        margin-left: 30px;
+        margin-left: 70px;
     }
 
     .optionenResponsive {
