@@ -3,16 +3,17 @@ var KlimawandelSchwarzwald;
 (function (KlimawandelSchwarzwald) {
     window.addEventListener("load", handleLoad);
     function handleLoad() {
+        let videoBox = document.getElementById("videoBox");
+        let video = document.getElementById("videos");
         let textBox = document.getElementById("textBox");
         textBox.hidden = true;
-        let video = document.getElementById("videos");
         video.onended = () => {
             videoEnded();
         };
         function videoEnded() {
             console.log("ok");
             textBox.hidden = false;
-            window.location.href = "#textBox";
+            videoBox.hidden = true;
         }
     }
 })(KlimawandelSchwarzwald || (KlimawandelSchwarzwald = {}));

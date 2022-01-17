@@ -3,16 +3,17 @@ namespace KlimawandelSchwarzwald {
    
 
     function handleLoad(): void {
-        let textBox: HTMLDivElement = <HTMLDivElement>document.getElementById("textBox");
-        textBox.hidden = true;
+        let videoBox: HTMLElement = <HTMLElement>document.getElementById("videoBox");
         let video: HTMLElement = <HTMLElement>document.getElementById("videos");
+        let textBox: HTMLElement = <HTMLElement>document.getElementById("textBox");
+        textBox.hidden = true;
         video.onended = () => {
             videoEnded();
         };
         function videoEnded(): void {
             console.log("ok");
             textBox.hidden = false;
-            window.location.href = "#textBox";
+            videoBox.hidden = true;
         }
     }
 }

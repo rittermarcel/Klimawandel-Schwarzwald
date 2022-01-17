@@ -1,4 +1,4 @@
-html {
+.bg {
     background-image: url("bilder/drohneBackground.JPG");
     background-position: center;
     background-repeat: no-repeat;
@@ -14,33 +14,25 @@ body {
 body::after {
     content: '';
     display: block;
-    height: 50px;
+    height: 30px;
 }
 
 .header {
     position: relative;
-    margin-bottom: 70px;
-    top: -25px;
+    margin-bottom: 120px;
     left: 0px;
     background-color: white;
     width: 100%;
-    min-height: 90px;
+    min-height: 30px;
 }
 
-.header h1 {
-    position: relative;
-    text-align: center;
-    top:15px;
-}
 
 .header p {
     position: relative;
-    text-align: center;
-    margin-top: 25px;
+    font-size: 14px;
     margin-bottom: 30px;
-}
-.header p:hover {
-    font-size: 18px;
+    text-align: center;
+    color: black;
 }
 
 
@@ -56,6 +48,7 @@ body::after {
     margin-top: 60px;
     color: white;
 }
+
 .wrapper p {
     color: white;
 }
@@ -67,24 +60,29 @@ a {
 }
 
 canvas {
+    margin-top: 8%;
     background-color: lightblue;
-    border-color: white;
+    border-color: black;
     border-style: solid;
     border-width: 3px;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
+    border-radius: 5px;
 
 }
 
-#deadTreePic1 img{
+#deadTreePic1 img {
     width: 400px;
-    height:400px;
+    height: 400px;
 }
+
 form {
     margin-bottom: 100px;
 }
 
 
 .questionField {
+    text-align: center;
+    border-radius: 6px;
     width: 350px;
     background-color: white;
     border-style: solid;
@@ -99,14 +97,16 @@ form {
     flex-direction: row;
     justify-content: center;
     top: 40px;
-    margin-left: 470px;
+    margin-left: 520px;
 
 }
 
 
 .optionen h3 {
-    margin-right: 30px;
-    color: white;
+    margin-right: 65px;
+    transform: scale(2);
+    background-color: white;
+    border-radius: 5px;
 }
 
 .optionenResponsive {
@@ -118,6 +118,7 @@ form {
     margin-left: 400px;
 
 }
+
 .optionenResponsive h3 {
     margin-right: 30px;
     color: white;
@@ -125,6 +126,7 @@ form {
 
 
 .radioButton {
+    border-color: black;
     position: relative;
     top: 50px;
     width: 50px;
@@ -146,7 +148,7 @@ form {
     margin-top: 50px;
     bottom: 0;
     width: 100%;
-    height: 50px;
+    height: 30px;
     background-color: white;
 }
 
@@ -156,43 +158,55 @@ button {
     height: 60px;
     margin-top: 20px;
     margin-bottom: 100px;
-    background-color: white;
     font-size: 15px;
+    color: white;
+    background: transparent;
     cursor: pointer;
     border-style: solid;
     border-width: 4px;
-    border-color: black;
+    border-color: white;
 }
 
 button:hover {
-    margin-top: 15px;
-    margin-bottom: 95px;
-    width: 210px;
-    height: 70px;
-    font-size: 17px;
+    color: black;
+    background-color: white;
 }
+
 .footer p {
     position: relative;
     text-align: center;
-    top: 7px;
     font-size: 12px;
 }
-.infoCanvasHighlighted{
+
+#infoCanvas {
+    margin-top: 200px;
+    font-size: 22px;
+}
+
+.infoCanvasHighlighted {
     color: red;
     font-size: 22px;
     margin-left: 10px;
     margin-right: 10px;
 }
-.color-red{
+
+.color-red {
     color: #F00;
 }
-.color-green{
+
+.color-green {
     color: rgb(16, 233, 16);
 }
+
 @media (max-width: 1700px) {
     canvas {
+        margin-top: -1%;
         width: 833px;
         height: 417px;
+    }
+
+    #infoCanvas {
+        margin-top: 100px;
     }
 
 }
@@ -216,6 +230,7 @@ button:hover {
 
     }
 }
+
 @media (max-width: 800px) {
 
     canvas {
@@ -228,36 +243,39 @@ button:hover {
 @media (max-width: 700px) {
     #cross {
         position: relative;
-        top:40px;
+        top: 40px;
     }
+
     #check {
         position: relative;
-        top:40px;
+        top: 40px;
     }
+
     .optionen {
         margin-left: 30px;
     }
-    
+
     .optionenResponsive {
         margin-left: -60px;
     }
-  
+
     .radioButton {
         top: 10px;
         margin-bottom: 30px;
         margin-left: 20px;
-    margin-right: 20px;
-        
+        margin-right: 20px;
+
     }
+
     .questionField {
-       margin-left: 50px;
-       margin-right: 50px;
+        margin-left: 50px;
+        margin-right: 50px;
     }
 
     .wrapper {
         max-width: 90%;
     }
-   
+
     canvas {
         width: 300px;
         height: 152px;

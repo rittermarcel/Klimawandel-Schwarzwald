@@ -1,30 +1,21 @@
 .bg {
     background-image: url("bilder/drohneBackground.JPG");
-    height: 110vh;
+    height: 95vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .bg1 {
-    position: relative;
-    background-image: url("bilder/drohneBackground2.JPG");
+    margin-top: -25px;
+    /* background-image: url("bilder/drohneBackground2.JPG"); */
+    background-color: black;
+    z-index: -10;
     height: 110vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
-
-.bg2 {
-    background-image: url("bilder/drohneBackground.JPG");
-    height: 110vh;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-
-
 
 body {
     min-height: 100vh;
@@ -35,20 +26,20 @@ body {
 body::after {
     content: '';
     display: block;
-    height: 50px;
+    height: 30px;
 }
 
 .header {
     position: relative;
     margin-bottom: 30vh;
-    top: -25px;
     left: 0px;
     background-color: white;
     width: 100%;
-    min-height: 90px;
+    min-height: 30px;
 }
 
 .header h1 {
+    color: black;
     position: relative;
     text-align: center;
     top: 15px;
@@ -56,13 +47,11 @@ body::after {
 
 .header p {
     position: relative;
-    margin-top: 25px;
-    margin-bottom: 30px;
     text-align: center;
+    color: black;
+    font-size: 14px;
 }
-.header p:hover {
-    font-size: 18px;
-}
+
 
 
 
@@ -86,7 +75,7 @@ a {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 50px;
+    height: 30px;
     background-color: white;
 }
 
@@ -97,7 +86,6 @@ a {
 
 video {
     position: relative;
-    margin-top: 20vh;
     width: 100%;
     height: 100%;
     border-style: solid;
@@ -105,70 +93,68 @@ video {
 }
 
 .wrapper button {
+    color: white;
     width: 200px;
     height: 60px;
     margin-top: 40px;
-    background-color: white;
+    background-color: black;
     font-size: 15px;
     cursor: pointer;
     border-style: solid;
     border-width: 4px;
-    border-color: black;
+    border-color: white;
 }
 
 .wrapper button:hover {
-    margin-top: 35px;
-    width: 220px;
-    height: 70px;
-    font-size: 17px;
+    background-color: white;
+    color: black;
 }
 
 .footer p {
     position: relative;
     text-align: center;
-    top: 7px;
     font-size: 12px;
 }
 
-.space {
-    position: relative;
-    width: 100%;
-    height: 10px;
+.space2 {
+    height: 40vh;
 }
 
-#textBox {
-    position: relative;
-    margin-top: 40vh;
-
-
+.space1 {
+    height: 20vh;
 }
+
 @media (max-width: 1200px) {
     .bg {
         min-height: 30vh;
     }
-    
+
     .bg1 {
         min-height: 30vh;
 
     }
-    
+
     .bg2 {
         min-height: 30vh;
     }
+
     #textBox {
         margin-top: 20vh;
     }
+
     .header {
         margin-bottom: 10vh;
 
     }
-    video {
-        margin-top: 10vh;
-    }
+
     .wrapper {
 
         max-width: 80%;
 
+    }
+
+    .space1 {
+        height: 22vh;
     }
 
 }
