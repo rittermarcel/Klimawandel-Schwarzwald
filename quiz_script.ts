@@ -94,7 +94,7 @@ namespace KlimawandelSchwarzwald {
     }
     function checkAnswers(): void {
         let infoCanvas: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("infoCanvas");
-        if (answers.length < fragen.length) {
+        if (answers.length < fragen.length || answers[0] === undefined) {
             infoCanvas.innerHTML = "<span class='color-red'>Bitte noch fehlende Fragen beantworten!</span>";
             infoCanvas.setAttribute("class", "infoCanvasHighlighted");
         } else {

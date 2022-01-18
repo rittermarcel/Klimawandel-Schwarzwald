@@ -80,7 +80,7 @@ var KlimawandelSchwarzwald;
     }
     function checkAnswers() {
         let infoCanvas = document.getElementById("infoCanvas");
-        if (answers.length < KlimawandelSchwarzwald.fragen.length) {
+        if (answers.length < KlimawandelSchwarzwald.fragen.length || answers[0] === undefined) {
             infoCanvas.innerHTML = "<span class='color-red'>Bitte noch fehlende Fragen beantworten!</span>";
             infoCanvas.setAttribute("class", "infoCanvasHighlighted");
         }
