@@ -1,9 +1,14 @@
 [
-    {"id": "1", "frage": "Fichten sind eher vom Klimawandel betroffen als andere Baumarten?", "antwort": "false"},
-    {"id": "2", "frage": "Der Schwarzwald bietet 20.000 km an Wanderwegen?", "antwort": "true"},
-    {"id": "3", "frage": "Seit 2017 siedeln sich erstmals vereinzelt wieder Wölfe im Schwarzwald an?", "antwort": "true"},
-    {"id": "4", "frage": "Etwa 90 % des Schwarzwald-Baumbestands machen Tannen und Kiefern aus", "antwort": "false"},
-    {"id": "5", "frage": "Der Schwarzwald liegt im Südosten Baden-Württembergs", "antwort": "true"},
-    {"id": "6", "frage": "Fichten sind eher vom Klimawandel betroffen als andere Baumarten", "antwort": "true"},
-    {"id": "7", "frage": "Testfrage", "antwort": "true"}
+    {"id": "1", "frage": "Durch den Schwarzwald zieht sich ein Wegenetz von 20.000 km Länge.", "antwort": "true"},
+    {"id": "2", "frage": "Fichten sind stärker vom Klimawandel betroffen als andere Baumarten.", "antwort": "true"},
+    {"id": "3", "frage": "Der Schwarzwald ist der größte Holzproduzent Deutschlands.", "antwort": "false"},
+    {"id": "4", "frage": "Im Schwarzwald darf nur so viel Holz geerntet werden, wie innerhalb eines Jahres nachwachsen kann.", "antwort": "true"},
+    {"id": "5", "frage": "Um den Schwarzwald besser an den Klimawandel anzupassen, werden vor allem Kiefern gepflanzt.", "antwort": "false"},
+    {"id": "6", "frage": "80 % der Bäume im Schwarzwald sind Tannen und Kiefern.", "antwort": "true"},
+    {"id": "7", "frage": "Zwei große Naturschutzgebiete stellen den Schwarzwald unter besonderen Schutz.", "antwort": "false"},
+    {"id": "8", "frage": "Neben Tourismus, Landwirtschaft und Holzwirtschaft sind auch Kurgäste ein wichtiger Wirtschaftsfaktor im Schwarzwald.", "antwort": "true"},
+    {"id": "9", "frage": "Der Klimawandel macht sich im Schwarzwald unter anderem durch extreme Trockenheit und Starkregen bemerkbar.", "antwort": "true"},
+    {"id": "10", "frage": "Mischwälder sind klimastabiler.", "antwort": "true"},
+    {"id": "11", "frage": "Den Nationalpark Schwarzwald gibt es schon seit 30 Jahren.", "antwort": "false"}
+
 ]

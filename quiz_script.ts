@@ -153,7 +153,7 @@ namespace KlimawandelSchwarzwald {
             let checkAnswersButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("checkAnswers");
 
 
-            infoCanvas.innerHTML = "Durch deine Antworten sind " + "<span class='color-red'> " + deadTreesNumber + "</span>" + " Bäume abgestorben." + " Du hast " + "<span class='color-red'> " + falscheAntworten + "</span>" + " Frage/n falsch " + "und " + "<span class='color-green'> " + richtigeAntworten + "</span>" + " richtige beantwortet.";
+            infoCanvas.innerHTML = "Du hast " + richtigeAntworten + " Fragen richtig und " + falscheAntworten + " falsch beantwortet. Durch deine Antworten sind " + deadTreesNumber + " Bäume abgestorben.";
 
             infoCanvas.setAttribute("class", "infoCanvasHighlighted");
             checkAnswersButton.innerHTML = "Quiz neu laden";

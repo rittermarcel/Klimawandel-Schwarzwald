@@ -1,3 +1,6 @@
+html {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 .bg {
     background-image: url("bilder/drohneBackground.JPG");
     background-position: center;
@@ -21,18 +24,19 @@ body::after {
     position: relative;
     margin-bottom: 120px;
     left: 0px;
-    background-color: white;
+    background-color: black;
     width: 100%;
-    min-height: 30px;
+    top:-14px;
+    min-height: 40px;
 }
 
 
 .header p {
     position: relative;
     font-size: 14px;
-    margin-bottom: 30px;
+    top:10px;
     text-align: center;
-    color: black;
+    color: white;
 }
 
 
@@ -105,7 +109,6 @@ form {
 .optionen h3 {
     margin-right: 65px;
     transform: scale(2);
-    background-color: white;
     border-radius: 5px;
 }
 
@@ -123,7 +126,6 @@ form {
     margin-right: 60px;
     color: white;
     transform: scale(2);
-    background-color: white;
     border-radius: 5px;
 }
 
@@ -168,6 +170,7 @@ button {
     border-style: solid;
     border-width: 4px;
     border-color: white;
+    border-radius: 6px;
 }
 
 button:hover {
@@ -195,13 +198,11 @@ button:hover {
 
 .color-red {
     color: #F00;
-    background-color: white;
     border-radius: 5px;
 }
 
 .color-green {
     color: rgb(23, 158, 23);
-    background-color: white;
     border-radius: 5px;
 }
 
