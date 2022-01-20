@@ -208,13 +208,13 @@ button:hover {
 
 @media (max-width: 1700px) {
     canvas {
-        margin-top: -100px;
+        margin-top: -70px;
         width: 833px;
         height: 417px;
     }
 
     #infoCanvas {
-        margin-top: 50px;
+        margin-top: 20px;
     }
 
 }
