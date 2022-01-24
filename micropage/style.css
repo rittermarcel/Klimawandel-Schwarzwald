@@ -21,7 +21,7 @@ html {
 }
 h1 {
     position: relative;
-    margin-bottom: 50px;
+    margin-bottom: 70px;
 }
 h3{
     font-size: 25px;
@@ -45,9 +45,9 @@ p {
     border-color: white;
     margin-left: 60px;
     margin-right: 60px;
-    margin-bottom: 100px;
-    width:330px;
-    height:230px;
+    margin-bottom: 150px;
+    width:400px;
+    height:300px;
     cursor: pointer;
 }
 video {
@@ -56,8 +56,8 @@ video {
     border-style: solid;
     border-width: 3px;
     border-color: white;
-    margin-bottom: 150px;
+    margin-bottom: 180px;
 }
 .pic img:hover {
-    transform: scale(1.4);
+    transform: scale(2);
 }
