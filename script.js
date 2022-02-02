@@ -11,7 +11,6 @@ var KlimawandelSchwarzwald;
             videoEnded();
         };
         function videoEnded() {
-            console.log("ok");
             textBox.hidden = false;
             videoBox.hidden = true;
         }

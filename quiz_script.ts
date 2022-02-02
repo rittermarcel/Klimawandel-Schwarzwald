@@ -9,8 +9,6 @@ namespace KlimawandelSchwarzwald {
     let treeHeight: number[] = [];
     let treeDistance: number[] = [];
     export function handleLoad(): void {
-        console.log("start");
-
         let checkAnswersButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("checkAnswers");
         checkAnswersButton.addEventListener("click", checkAnswers);
         let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.querySelector("canvas");
@@ -39,7 +37,6 @@ namespace KlimawandelSchwarzwald {
             treeHeight.push(randomHeight);
             treeDistance.push(x);
             drawTree(x, randomHeight);
-            console.log("x " + x);
             x = x + randomDistance;
         }
     }
@@ -90,7 +87,6 @@ namespace KlimawandelSchwarzwald {
 
         answers[questionNumber] = target.value;
 
-        console.log(answers);
     }
     function checkAnswers(): void {
         let infoCanvas: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("infoCanvas");
@@ -128,24 +124,15 @@ namespace KlimawandelSchwarzwald {
                 let prozentRichtigeAntworten: number = (richtigeAntworten / answers.length) * 100;
                 let prozentFalscheAntworten: number = (falscheAntworten / answers.length * 100);
 
-                console.log(prozentRichtigeAntworten + " %");
-                console.log(prozentFalscheAntworten + " %");
-
                 let healthyTreesNumber: number = Math.round((prozentRichtigeAntworten * 6) / 100);
                 let deadTreesNumber: number = Math.round((prozentFalscheAntworten * 6) / 100);
 
-                console.log("healthy " + healthyTreesNumber);
-
-                console.log("dead " + deadTreesNumber);
-
                 for (let i: number = 0; i < healthyTreesNumber; i++) {
                     drawTree(treeDistance[i], treeHeight[i]);
-                    console.log("x " + x);
                     x = x + 170;
                 }
                 for (let i: number = 0; i < deadTreesNumber; i++) {
                     drawDeadTree(treeDistance[healthyTreesNumber + i], treeHeight[healthyTreesNumber + i]);
-                    console.log("x " + x);
                     x = x + 170;
 
                 }

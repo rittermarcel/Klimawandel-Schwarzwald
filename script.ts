@@ -1,6 +1,6 @@
 namespace KlimawandelSchwarzwald {
     window.addEventListener("load", handleLoad);
-   
+
 
     function handleLoad(): void {
         let videoBox: HTMLElement = <HTMLElement>document.getElementById("videoBox");
@@ -11,7 +11,6 @@ namespace KlimawandelSchwarzwald {
             videoEnded();
         };
         function videoEnded(): void {
-            console.log("ok");
             textBox.hidden = false;
             videoBox.hidden = true;
         }

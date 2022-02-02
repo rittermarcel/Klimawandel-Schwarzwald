@@ -9,7 +9,6 @@ var KlimawandelSchwarzwald;
     let treeHeight = [];
     let treeDistance = [];
     function handleLoad() {
-        console.log("start");
         let checkAnswersButton = document.getElementById("checkAnswers");
         checkAnswersButton.addEventListener("click", checkAnswers);
         let canvas = document.querySelector("canvas");
@@ -36,7 +35,6 @@ var KlimawandelSchwarzwald;
             treeHeight.push(randomHeight);
             treeDistance.push(x);
             drawTree(x, randomHeight);
-            console.log("x " + x);
             x = x + randomDistance;
         }
     }
@@ -76,7 +74,6 @@ var KlimawandelSchwarzwald;
         let target = _event.target;
         let questionNumber = parseInt(target.name);
         answers[questionNumber] = target.value;
-        console.log(answers);
     }
     function checkAnswers() {
         let infoCanvas = document.getElementById("infoCanvas");
@@ -113,20 +110,14 @@ var KlimawandelSchwarzwald;
                 let x = -30;
                 let prozentRichtigeAntworten = (richtigeAntworten / answers.length) * 100;
                 let prozentFalscheAntworten = (falscheAntworten / answers.length * 100);
-                console.log(prozentRichtigeAntworten + " %");
-                console.log(prozentFalscheAntworten + " %");
                 let healthyTreesNumber = Math.round((prozentRichtigeAntworten * 6) / 100);
                 let deadTreesNumber = Math.round((prozentFalscheAntworten * 6) / 100);
-                console.log("healthy " + healthyTreesNumber);
-                console.log("dead " + deadTreesNumber);
                 for (let i = 0; i < healthyTreesNumber; i++) {
                     drawTree(treeDistance[i], treeHeight[i]);
-                    console.log("x " + x);
                     x = x + 170;
                 }
                 for (let i = 0; i < deadTreesNumber; i++) {
                     drawDeadTree(treeDistance[healthyTreesNumber + i], treeHeight[healthyTreesNumber + i]);
-                    console.log("x " + x);
                     x = x + 170;
                 }
                 let checkAnswersButton = document.getElementById("checkAnswers");
