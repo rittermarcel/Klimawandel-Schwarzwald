@@ -130,7 +130,15 @@ var KlimawandelSchwarzwald;
                     x = x + 170;
                 }
                 let checkAnswersButton = document.getElementById("checkAnswers");
-                infoCanvas.innerHTML = "Du hast " + richtigeAntworten + " Fragen richtig und " + falscheAntworten + " falsch beantwortet. Durch deine Antworten sind " + deadTreesNumber + " Bäume abgestorben.";
+                if (deadTreesNumber === 1) {
+                    infoCanvas.innerHTML = "Du hast " + richtigeAntworten + " Fragen richtig und " + falscheAntworten + " falsch beantwortet. Durch deine Antworten ist " + deadTreesNumber + " Baum abgestorben.";
+                }
+                else if (richtigeAntworten === 1) {
+                    infoCanvas.innerHTML = "Du hast " + richtigeAntworten + " Frage richtig und " + falscheAntworten + " falsch beantwortet. Durch deine Antworten sind " + deadTreesNumber + " Bäume abgestorben.";
+                }
+                else {
+                    infoCanvas.innerHTML = "Du hast " + richtigeAntworten + " Fragen richtig und " + falscheAntworten + " falsch beantwortet. Durch deine Antworten sind " + deadTreesNumber + " Bäume abgestorben.";
+                }
                 infoCanvas.setAttribute("class", "infoCanvasHighlighted");
                 checkAnswersButton.innerHTML = "Quiz neu laden";
                 let optionen = document.getElementById("optionen");

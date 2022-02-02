@@ -98,75 +98,82 @@ namespace KlimawandelSchwarzwald {
             infoCanvas.innerHTML = "<span class='color-red'>Bitte noch fehlende Fragen beantworten!</span>";
             infoCanvas.setAttribute("class", "infoCanvasHighlighted");
         } else {
-        clickCounterButton++;
-        if (clickCounterButton === 1) {
-            for (let i: number = 0; i < answers.length; i++) {
-                let answerDiv: HTMLDivElement = <HTMLDivElement>document.getElementById("answer" + i);
-                if (answers[i] === fragen[i].antwort) {
-                    let check: HTMLElement = document.createElement("img");
-                    check.setAttribute("src", "bilder/check.png");
-                    check.setAttribute("class", "radioButton");
-                    check.setAttribute("id", "check");
-                    answerDiv.appendChild(check);
-                    richtigeAntworten = richtigeAntworten + 1;
-                } else if (answers[i] === undefined) {
-                    console.log("Aufgabe ausgelassen");
+            clickCounterButton++;
+            if (clickCounterButton === 1) {
+                for (let i: number = 0; i < answers.length; i++) {
+                    let answerDiv: HTMLDivElement = <HTMLDivElement>document.getElementById("answer" + i);
+                    if (answers[i] === fragen[i].antwort) {
+                        let check: HTMLElement = document.createElement("img");
+                        check.setAttribute("src", "bilder/check.png");
+                        check.setAttribute("class", "radioButton");
+                        check.setAttribute("id", "check");
+                        answerDiv.appendChild(check);
+                        richtigeAntworten = richtigeAntworten + 1;
+                    } else if (answers[i] === undefined) {
+                        console.log("Aufgabe ausgelassen");
+                    }
+
+                    else {
+                        let cross: HTMLElement = document.createElement("img");
+                        cross.setAttribute("src", "bilder/cross.png");
+                        cross.setAttribute("class", "radioButton");
+                        cross.setAttribute("id", "cross");
+                        answerDiv.appendChild(cross);
+                        falscheAntworten = falscheAntworten + 1;
+                    }
+                }
+                crc2.putImageData(imgData, 0, 0);
+                let x: number = -30;
+
+                let prozentRichtigeAntworten: number = (richtigeAntworten / answers.length) * 100;
+                let prozentFalscheAntworten: number = (falscheAntworten / answers.length * 100);
+
+                console.log(prozentRichtigeAntworten + " %");
+                console.log(prozentFalscheAntworten + " %");
+
+                let healthyTreesNumber: number = Math.round((prozentRichtigeAntworten * 6) / 100);
+                let deadTreesNumber: number = Math.round((prozentFalscheAntworten * 6) / 100);
+
+                console.log("healthy " + healthyTreesNumber);
+
+                console.log("dead " + deadTreesNumber);
+
+                for (let i: number = 0; i < healthyTreesNumber; i++) {
+                    drawTree(treeDistance[i], treeHeight[i]);
+                    console.log("x " + x);
+                    x = x + 170;
+                }
+                for (let i: number = 0; i < deadTreesNumber; i++) {
+                    drawDeadTree(treeDistance[healthyTreesNumber + i], treeHeight[healthyTreesNumber + i]);
+                    console.log("x " + x);
+                    x = x + 170;
+
                 }
 
-                else {
-                    let cross: HTMLElement = document.createElement("img");
-                    cross.setAttribute("src", "bilder/cross.png");
-                    cross.setAttribute("class", "radioButton");
-                    cross.setAttribute("id", "cross");
-                    answerDiv.appendChild(cross);
-                    falscheAntworten = falscheAntworten + 1;
+                let checkAnswersButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("checkAnswers");
+
+
+                if (deadTreesNumber === 1) {
+                    infoCanvas.innerHTML = "Du hast " + richtigeAntworten + " Fragen richtig und " + falscheAntworten + " falsch beantwortet. Durch deine Antworten ist " + deadTreesNumber + " Baum abgestorben.";
+
+                } else if (richtigeAntworten === 1) {
+                    infoCanvas.innerHTML = "Du hast " + richtigeAntworten + " Frage richtig und " + falscheAntworten + " falsch beantwortet. Durch deine Antworten sind " + deadTreesNumber + " Bäume abgestorben.";
+
+                } else {
+                    infoCanvas.innerHTML = "Du hast " + richtigeAntworten + " Fragen richtig und " + falscheAntworten + " falsch beantwortet. Durch deine Antworten sind " + deadTreesNumber + " Bäume abgestorben.";
                 }
+                infoCanvas.setAttribute("class", "infoCanvasHighlighted");
+                checkAnswersButton.innerHTML = "Quiz neu laden";
+
+
+                let optionen: HTMLDivElement = <HTMLDivElement>document.getElementById("optionen");
+                optionen.removeAttribute("class");
+                optionen.setAttribute("class", "optionenResponsive");
+
+            } else {
+                window.location.reload();
             }
-            crc2.putImageData(imgData, 0, 0);
-            let x: number = -30;
-
-            let prozentRichtigeAntworten: number = (richtigeAntworten / answers.length) * 100;
-            let prozentFalscheAntworten: number = (falscheAntworten / answers.length * 100);
-
-            console.log(prozentRichtigeAntworten + " %");
-            console.log(prozentFalscheAntworten + " %");
-
-            let healthyTreesNumber: number = Math.round((prozentRichtigeAntworten * 6) / 100);
-            let deadTreesNumber: number = Math.round((prozentFalscheAntworten * 6) / 100);
-
-            console.log("healthy " + healthyTreesNumber);
-
-            console.log("dead " + deadTreesNumber);
-
-            for (let i: number = 0; i < healthyTreesNumber; i++) {
-                drawTree(treeDistance[i], treeHeight[i]);
-                console.log("x " + x);
-                x = x + 170;
-            }
-            for (let i: number = 0; i < deadTreesNumber; i++) {
-                drawDeadTree(treeDistance[healthyTreesNumber + i], treeHeight[healthyTreesNumber + i]);
-                console.log("x " + x);
-                x = x + 170;
-
-            }
-
-            let checkAnswersButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("checkAnswers");
-
-
-            infoCanvas.innerHTML = "Du hast " + richtigeAntworten + " Fragen richtig und " + falscheAntworten + " falsch beantwortet. Durch deine Antworten sind " + deadTreesNumber + " Bäume abgestorben.";
-
-            infoCanvas.setAttribute("class", "infoCanvasHighlighted");
-            checkAnswersButton.innerHTML = "Quiz neu laden";
-
-
-            let optionen: HTMLDivElement = <HTMLDivElement>document.getElementById("optionen");
-            optionen.removeAttribute("class");
-            optionen.setAttribute("class", "optionenResponsive");
-
-        } else {
-            window.location.reload();
         }
-    }
     }
     function drawTree(x: number, y: number): void {
         let tree: Baum = new Baum(x, y);
