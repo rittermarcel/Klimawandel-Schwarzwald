@@ -130,6 +130,7 @@ video {
 
 .footer p {
     position: relative;
+    top:-4px;
     text-align: center;
     font-size: 12px;
 }

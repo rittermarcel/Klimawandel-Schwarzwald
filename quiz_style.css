@@ -187,6 +187,7 @@ button:hover {
     position: relative;
     text-align: center;
     font-size: 12px;
+    top:-4px;
 }
 
 #infoCanvas {
